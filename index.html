@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thomas Pierson — Structural Health Monitoring &amp; Robotic Perception</title>
-<meta name="description" content="Thomas Pierson — ML for wavefield reconstruction, structural health monitoring, and robotic perception. Currently at LANL, headed to Carnegie Mellon.">
+<title>Thomas Pierson</title>
+<meta name="description" content="Thomas Pierson — researcher working on 3D ML neural radiance wavefield reconstruction, robotic sensing, and robotic perception.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -101,50 +101,6 @@
   .contact-row a{ color:rgba(243,245,240,0.88); border-bottom:1px solid rgba(243,245,240,0.3); padding:6px 16px 6px 0; }
   .contact-row a:hover{ color:var(--amber); border-color:rgba(217,124,51,0.6); }
   .contact-row span.sep{ color:rgba(243,245,240,0.3); padding:6px 14px 6px 0; }
-
-  /* ---------- wavefield scope graphic ---------- */
-  .scope-wrap{ position:relative; margin: 44px 0 0; }
-  .scope-wrap svg{ display:block; width:100%; height:auto; }
-
-  .plate-rect{ fill:none; stroke:rgba(127,215,227,0.5); stroke-width:1; }
-  .scan-dot-grid circle{ fill:rgba(127,215,227,0.22); }
-  .actuator{ fill:var(--amber); }
-  .ring{
-    fill:none; stroke:var(--cyan); stroke-width:1.1;
-    transform-box: fill-box; transform-origin:center;
-    animation: ripple 3.6s ease-out infinite;
-    opacity:0;
-  }
-  .ring2{ animation-delay:1.2s; }
-  .ring3{ animation-delay:2.4s; }
-  @keyframes ripple{
-    0%{ transform:scale(0.04); opacity:0.8; }
-    65%{ opacity:0.22; }
-    100%{ transform:scale(1); opacity:0; }
-  }
-  .scanner{ transform-box: view-box; animation: raster 6s linear infinite; }
-  .scanner circle{ fill:var(--amber); filter: drop-shadow(0 0 5px rgba(217,124,51,0.85)); }
-  @keyframes raster{
-    0%   { transform: translate(118px,108px); }
-    11%  { transform: translate(636px,108px); }
-    13%  { transform: translate(636px,168px); }
-    24%  { transform: translate(118px,168px); }
-    26%  { transform: translate(118px,228px); }
-    37%  { transform: translate(636px,228px); }
-    39%  { transform: translate(636px,288px); }
-    50%  { transform: translate(118px,288px); }
-    52%  { transform: translate(118px,108px); }
-    100% { transform: translate(118px,108px); }
-  }
-  .led{ fill:var(--amber); animation: blink 1.5s ease-in-out infinite alternate; }
-  @keyframes blink{ from{opacity:1;} to{opacity:.25;} }
-  .scope-label{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; fill:rgba(243,245,240,0.55); }
-
-  @media (prefers-reduced-motion: reduce){
-    .ring, .scanner, .led{ animation:none !important; }
-    .ring{ opacity:0.28; transform:scale(0.55); }
-    .scanner{ transform: translate(377px,198px); }
-  }
 
   .hero-foot-space{ height:38px; }
 
@@ -243,9 +199,9 @@
     </div>
 
     <div class="hero-content">
-      <div class="hero-eyebrow">Sensors, Hardware, Space Vehicles &amp; Robotic Perception</div>
+      <div class="hero-eyebrow">3D ML, Sensors, Space Vehicles &amp; Robotic Perception</div>
       <h1>Thomas<br>Pierson</h1>
-      <p class="lede">I work on perception and sensing problems for space vehicles, robots, and computer hardware.</p>
+      <p class="lede">I work on perception and sensing problems for space vehicles, robotics, and computer hardware. I think the most important issue for me to work on is AI hardware and nuclear security, so I'm focusing on space remote sensing and zero-knowledge proofs. </p>
 
       <div class="contact-row">
         <a href="https://ttpierson.com/wp-content/uploads/2026/04/tp_resume.pdf">Résumé</a>
@@ -255,38 +211,9 @@
         <a href="https://www.linkedin.com/in/tpierson741/">LinkedIn</a>
         <span class="sep">/</span>
         <a href="https://github.com/ttpierson">GitHub</a>
+        <span class="sep">/</span>
+        <a href="https://scholar.google.com/citations?user=5l8yCAcAAAAJ&hl=en">Google Scholar</a>
       </div>
-    </div>
-
-    <!-- wavefield / LDV scan graphic — signature element -->
-    <div class="scope-wrap plate on-dark" role="img" aria-label="Animated diagram of a laser doppler vibrometer scanning a plate while concentric wavefronts ripple outward from a piezoelectric actuator">
-      <span class="tick tick-tl"></span><span class="tick tick-tr"></span>
-      <span class="tick tick-bl"></span><span class="tick tick-br"></span>
-      <svg viewBox="0 0 754 360" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="scanGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1.4"></circle>
-          </pattern>
-        </defs>
-
-        <rect class="plate-rect" x="60" y="60" width="634" height="260" rx="2"></rect>
-        <rect class="scan-dot-grid" x="100" y="90" width="554" height="200" fill="url(#scanGrid)"></rect>
-
-        <g>
-          <circle class="ring" cx="160" cy="198" r="150"></circle>
-          <circle class="ring ring2" cx="160" cy="198" r="150"></circle>
-          <circle class="ring ring3" cx="160" cy="198" r="150"></circle>
-          <circle class="actuator" cx="160" cy="198" r="5"></circle>
-        </g>
-
-        <g class="scanner">
-          <circle cx="0" cy="0" r="4.5"></circle>
-        </g>
-
-        <circle class="led" cx="78" cy="78" r="3.5"></circle>
-        <text class="scope-label" x="90" y="82">SCAN — ACTIVE</text>
-        <text class="scope-label" x="494" y="338" text-anchor="end">CH.1 · Z-DISPLACEMENT / LDV</text>
-      </svg>
     </div>
     <div class="hero-foot-space"></div>
   </div>
@@ -299,11 +226,11 @@
 
     <div class="about-grid">
       <div>
-        <h2>Hey, thanks for visiting my website!.</h2>
-        <p>I'm currently researching at <strong>Los Alamos National Laboratory</strong> on <a href="https://ttpierson.com/wp-content/uploads/2026/03/acfrog1.pdf">3D ML neural radiance wavefield reconstruction</a> for a robotic laser doppler vibrometer. more here soon, once it clears review.</p>
-        <p>This fall I'll join the first <a href="https://caish.org/hardware">Cambridge AI Safety Hub Hardware Security Cohort</a>, alongside starting grad school at <strong>Carnegie Mellon University</strong>, working on 3D models for robotic perception.</p>
-        <p>I grew up in Albuquerque and finished my B.S. at New Mexico Tech. I built the <a href="https://spie.org/spie-smart-structures-and-materials-nondestructive-evaluation/presentation/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/13951-13">first piezoelectric wafer testing experiment in space</a>, which flew on the <a href="https://www.nasa.gov/materials-international-space-station-experiment-x-misse-x/">MISSE platform</a> on the International Space Station. I also led a team to <a href="https://hulc.nianet.org/">$10k in NASA competition funding</a> for an optical damage-detection sensor, among other things. Along the way I've worked with AFRL, Sandia, and NASA on internship and Co-Op teams.</p>
-        <p>I'm usually open to new projects or meeting new people, feel free to reach out!</p>
+        <h2>Hey! Thanks for visiting my website.</h2>
+        <p>I’m currently researching at <strong>Los Alamos National Laboratory</strong> on <a href="https://ttpierson.com/wp-content/uploads/2026/03/acfrog1.pdf">3D ML Neural Radiance wavefield reconstruction</a> for a robotic laser doppler vibrometer. More here soon once cleared….</p>
+        <p>I will be a part of the first <a href="https://caish.org/hardware">Cambridge AI Safety Hub Hardware Security Cohort</a> this fall, as well as starting grad school at <strong>Carnegie Mellon University</strong> to work on 3D models for robotic perception.</p>
+        <p>I grew up in Albuquerque, and finished my undergrad degree at <strong>New Mexico Tech</strong>. I built the <a href="https://spie.org/spie-smart-structures-and-materials-nondestructive-evaluation/presentation/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/13951-13">first piezoelectric wafer testing experiment in space</a>, which flew on the <a href="https://www.nasa.gov/materials-international-space-station-experiment-x-misse-x/">MISSE platform</a> of the International Space Station this year. I also organized and led a team to win <a href="https://hulc.nianet.org/">$10k in funding for a NASA competition</a> to build an optical damage detection sensor. I have worked with <strong>AFRL, SNL, and NASA</strong> for intern/Co-Op positions during school.</p>
+        <p>I am always open to new projects or meeting new people, so feel free to reach out to me!</p>
 
         <div class="affiliations plate">
           <span class="tick tick-tl"></span><span class="tick tick-tr"></span>
@@ -340,7 +267,6 @@
     <div class="log-head">
       <div class="eyebrow" style="margin-bottom:0;"><span class="dot"></span><span class="line"></span><span class="lbl">Research Log</span></div>
       <div class="log-count">3 ENTRIES</div>
-    </div>
 
     <div class="log-entry">
       <div class="log-fig">
@@ -351,7 +277,7 @@
       </div>
       <div class="log-text">
         <h3>SPIE Paper Published</h3>
-        <p>"Structural health monitoring payload for the MISSE platform on the International Space Station" — Thomas Pierson, Dr. Andrei Zagrai, Evgenii Volkov.</p>
+        <p>“Structural health monitoring payload for the MISSE platform on the International Space Station” — Thomas Pierson, Dr. Andrei Zagrai, Evgenii Volkov.</p>
         <div class="log-links"><a href="https://ttpierson.com/wp-content/uploads/2026/03/spie-2026-1.pdf">Read the paper →</a></div>
       </div>
     </div>
@@ -385,7 +311,7 @@
         <p>Project leader of a team of interns for the Space Vehicles Directorate.</p>
         <div class="log-links"><a href="https://www.afrl.af.mil/RV/">Visit AFRL/RV →</a></div>
       </div>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -394,7 +320,7 @@
   <div class="wrap">
     <div class="eyebrow on-dark"><span class="dot"></span><span class="line"></span><span class="lbl">Contact</span></div>
     <h2>Let's talk!</h2>
-    <p>Always open to research collaborations, new projects, or just meeting people working on related problems. </p>
+    <p>I am always open to new projects or meeting new people, so feel free to reach out to me!</p>
     <div class="contact-row">
       <a href="mailto:tpierson@andrew.cmu.edu">tpierson@andrew.cmu.edu</a>
       <span class="sep">/</span>
