@@ -33,12 +33,13 @@
     --accent:#5b7a99;
     --accent-soft:#8fa8c2;
     --serif:'Lora', Georgia, serif;
-    --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --sans:'Lora', Georgia, serif;
+    --personal:'Mefont', 'Lora', Georgia, serif;
     --maxw:1200px;
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth; font-size:20px;}
+  html{scroll-behavior:smooth; font-size:15px;}
   body{
     margin:0;
     background:
@@ -46,14 +47,17 @@
       var(--bg);
     color:var(--text);
     font-family:var(--sans);
-    font-size:21px;
-    letter-spacing:0.04em;
+    font-size:16px;
     line-height:1.7;
     -webkit-font-smoothing:antialiased;
   }
   a{ color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(91,122,153,0.35); transition:color .15s ease, border-color .15s ease; }
   a:hover{ border-bottom-color:var(--accent); color:#3f5c78; }
   :focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .personal{ font-family:var(--personal); letter-spacing:0.04em; }
+  .topnav nav.personal a{ font-size:18.4px; }
+  .links-row.personal{ font-size:18.4px; }
+  .portrait .cap.personal{ font-size:16px; }
 
   .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 16px; position:relative; }
 
@@ -125,7 +129,7 @@
 <div class="wrap">
   <div class="topnav">
     <span class="brand">Thomas Pierson</span>
-    <nav>
+    <nav class="personal">
       <a href="#about">About</a>
       <a href="#log">Updates</a>
       <a href="#contact">Contact</a>
@@ -137,7 +141,7 @@
 <section id="about">
   <div class="wrap hero">
 
-    <div class="links-row">
+    <div class="links-row personal">
       <a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/07/tp_resume-11.pdf">Resume</a>
       <a href="mailto:tpierson@andrew.cmu.edu">tpierson@andrew.cmu.edu</a>
       <a href="https://www.linkedin.com/in/tpierson741/">LinkedIn</a>
@@ -148,15 +152,15 @@
     <div class="bio-flex">
       <div class="bio">
         <p>Hey! Thanks for visiting my website.</p>
-        <p>I'm currently researching at <strong>Los Alamos National Laboratory</strong> on machine learning methods in satelite data for nonproliferation. I'm also working on a SPAR project to build robot benchmarks for safety with Robocurve (YC S26) </p>
-        <p>I am deferring grad school at <strong>Carnegie Mellon University</strong> because I want to work on AI and nuclear safety. I think that the time window for international colaboration on AI security is short. I was a part of the first <a href="https://caish.org/hardware">Cambridge AI Safety Hub Hardware Security Cohort</a>, and I plan to continue research on hardware security.</p>
-        <p>I grew up in Albuquerque and finished my undergrad degree at <strong>New Mexico Tech</strong>. I built the <a href="https://spie.org/spie-smart-structures-and-materials-nondestructive-evaluation/presentation/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/13951-13">first piezoelectric wafer testing experiment in space</a>, which flew on the <a href="https://www.nasa.gov/materials-international-space-station-experiment-x-misse-x/">MISSE platform</a> of the International Space Station this year. I also organized and led a team to win <a href="https://hulc.nianet.org/">$10k in funding for a NASA competition</a> to build an optical damage detection sensor. I've worked with <strong>AFRL, SNL, and NASA</strong> for intern/Co-Op positions during school.</p>
+        <p>I'm currently researching at Los Alamos National Laboratory on machine learning methods in satelite data for nonproliferation. I'm also working on a SPAR project to build robot benchmarks for safety with Robocurve (YC S26) </p>
+        <p>I am deferring grad school at Carnegie Mellon University because I want to work on AI and nuclear safety. I think that the time window for international colaboration on AI security is short. I was a part of the first <a href="https://caish.org/hardware">Cambridge AI Safety Hub Hardware Security Cohort</a>, and I plan to continue research on hardware security.</p>
+        <p>I grew up in Albuquerque and finished my undergrad degree at New Mexico Tech. I built the <a href="https://spie.org/spie-smart-structures-and-materials-nondestructive-evaluation/presentation/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/13951-13">first piezoelectric wafer testing experiment in space</a>, which flew on the <a href="https://www.nasa.gov/materials-international-space-station-experiment-x-misse-x/">MISSE platform</a> of the International Space Station this year. I also organized and led a team to win <a href="https://hulc.nianet.org/">$10k in funding for a NASA competition</a> to build an optical damage detection sensor. I've worked with <strong>AFRL, SNL, and NASA</strong> for intern/Co-Op positions during school.</p>
         <p>I am always open to new projects or meeting new people, so feel free to reach out to me!</p>
       </div>
 
       <div class="portrait">
         <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/03/img_3867-edited.jpg" alt="Portrait of Thomas Pierson">
-        <p class="cap">This picture was taken by my girlfriend <a href="https://helenatran.com">Helena</a>!</p>
+        <p class="cap personal">This picture was taken by my girlfriend <a href="https://helenatran.com">Helena</a>!</p>
       </div>
     </div>
   </div>
