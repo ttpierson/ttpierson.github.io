@@ -17,6 +17,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
+  @font-face{
+    font-family:'Mefont';
+    src:url('fonts/Mefont-Regular.ttf') format('truetype');
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+  }
   :root{
     --bg:#EBE3D8;
     --text:#1c1c1c;
@@ -25,13 +32,13 @@
     --rule:#e2e0da;
     --accent:#5b7a99;
     --accent-soft:#8fa8c2;
-    --serif:'Lora', Georgia, serif;
-    --sans:'Lora', Georgia, serif;
-    --maxw:800px;
+    --serif:'Mefont', 'Lora', Georgia, serif;
+    --sans:'Mefont', 'Lora', Georgia, serif;
+    --maxw:1200px;
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; font-size:20px;}
   body{
     margin:0;
     background:
@@ -39,7 +46,8 @@
       var(--bg);
     color:var(--text);
     font-family:var(--sans);
-    font-size:17px;
+    font-size:21px;
+    letter-spacing:0.04em;
     line-height:1.7;
     -webkit-font-smoothing:antialiased;
   }
@@ -47,7 +55,7 @@
   a:hover{ border-bottom-color:var(--accent); color:#3f5c78; }
   :focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
 
-  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; position:relative; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 16px; position:relative; }
 
   /* ---------- nav ---------- */
   .topnav{ display:flex; align-items:center; justify-content:space-between; padding:22px 0; border-bottom:1px solid var(--rule); }
@@ -58,7 +66,7 @@
 
   /* ---------- hero / bio ---------- */
   .hero{ padding:52px 0 40px; }
-  .hero h1{ font-family:var(--serif); font-weight:600; font-size:2.2rem; margin:0 0 4px; letter-spacing:-0.01em; }
+  .hero h1{ font-family:var(--serif); font-weight:600; font-size:2.2rem; margin:0 0 4px; }
   .role{ color:var(--text-soft); font-size:1.05rem; margin:0 0 18px; }
 
   .links-row{ display:flex; flex-wrap:wrap; margin:0 0 34px; font-size:0.92rem; }
@@ -66,7 +74,7 @@
 
   .bio-flex{ display:flex; gap:36px; align-items:flex-start; }
   .bio{ flex:1 1 auto; min-width:0; }
-  .bio p{ margin:0 0 15px; max-width:60ch; color:var(--text); }
+  .bio p{ margin:0 0 15px; max-width:85ch; color:var(--text); }
   .bio p:last-child{ margin-bottom:0; }
 
   .portrait{ flex:none; width:280px; }
@@ -94,7 +102,7 @@
 
   /* ---------- footer ---------- */
   footer.site-footer{ border-top:1px solid var(--rule); background:#f2f1ec; }
-  footer.site-footer .wrap{ padding:40px 24px; }
+  footer.site-footer .wrap{ padding:40px 16px; }
   footer.site-footer h2{ font-family:var(--serif); font-weight:600; font-size:1.3rem; margin:0 0 10px; }
   footer.site-footer p{ color:var(--text-soft); margin:0 0 18px; max-width:54ch; }
   .foot-links{ display:flex; flex-wrap:wrap; font-size:0.9rem; margin-bottom:22px; }
@@ -128,8 +136,6 @@
 <!-- ============ HERO / BIO ============ -->
 <section id="about">
   <div class="wrap hero">
-    <h1>Thomas Pierson</h1>
-    <p class="role">AI/Nuclear Security, Space, Perception</p>
 
     <div class="links-row">
       <a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/07/tp_resume-11.pdf">Resume</a>
@@ -142,14 +148,15 @@
     <div class="bio-flex">
       <div class="bio">
         <p>Hey! Thanks for visiting my website.</p>
-        <p>I'm currently researching at <strong>Los Alamos National Laboratory</strong> on machine learning methods in satelite data for nonproliferation. </p>
-        <p>I will be part of the first <a href="https://caish.org/hardware">Cambridge AI Safety Hub Hardware Security Cohort</a> this fall. I am deferring grad school at <strong>Carnegie Mellon University</strong> because I think hardware and nuclear security is a more pressing problem.</p>
+        <p>I'm currently researching at <strong>Los Alamos National Laboratory</strong> on machine learning methods in satelite data for nonproliferation. I'm also working on a SPAR project to build robot benchmarks for safety with Robocurve (YC S26) </p>
+        <p>I am deferring grad school at <strong>Carnegie Mellon University</strong> because I want to work on AI and nuclear safety. I think that the time window to for interntational colaboration on AI security progress improve is short, so I'm applying myself here. I was a part of the first <a href="https://caish.org/hardware">Cambridge AI Safety Hub Hardware Security Cohort</a>, and I plan to continue research on hardware security.</p>
         <p>I grew up in Albuquerque and finished my undergrad degree at <strong>New Mexico Tech</strong>. I built the <a href="https://spie.org/spie-smart-structures-and-materials-nondestructive-evaluation/presentation/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/13951-13">first piezoelectric wafer testing experiment in space</a>, which flew on the <a href="https://www.nasa.gov/materials-international-space-station-experiment-x-misse-x/">MISSE platform</a> of the International Space Station this year. I also organized and led a team to win <a href="https://hulc.nianet.org/">$10k in funding for a NASA competition</a> to build an optical damage detection sensor. I've worked with <strong>AFRL, SNL, and NASA</strong> for intern/Co-Op positions during school.</p>
         <p>I am always open to new projects or meeting new people, so feel free to reach out to me!</p>
       </div>
 
       <div class="portrait">
         <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/03/img_3867-edited.jpg" alt="Portrait of Thomas Pierson">
+        <p class="cap">This picture was taken by my girlfriend <a href="https://helenatran.com">Helena</a>!</p>
       </div>
     </div>
   </div>
@@ -158,7 +165,7 @@
 <!-- ============ UPDATES ============ -->
 <section class="block" id="log">
   <div class="wrap section-pad">
-    <h2 class="heading">Updates</h2>
+    <h2 class="heading">Updates (Out of date...)</h2>
 
     <div class="entry">
       <div class="entry-thumb">
@@ -167,7 +174,7 @@
         </a>
       </div>
       <div class="entry-body">
-        <div class="entry-tag">Award</div>
+        <div class="entry-tag"></div>
         <h3><a href="https://hulc.nianet.org/">NASA HuLC Innovation Award</a></h3>
         <p>The team I led won the innovation award at the NASA Human Lander Challenge.</p>
         <div class="entry-links"><a href="https://vimeo.com/showcase/hulc?video=1203883111">Watch the presentation (57:30) →</a></div>
@@ -181,7 +188,7 @@
         </a>
       </div>
       <div class="entry-body">
-        <div class="entry-tag">Publication</div>
+        <div class="entry-tag"></div>
         <h3><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13951/139510D/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/10.1117/12.3093724.full">SPIE Paper Published</a></h3>
         <p>“Structural health monitoring payload for the MISSE platform on the International Space Station” — Thomas Pierson, Dr. Andrei Zagrai, Evgenii Volkov.</p>
         <div class="entry-links"><a href="https://ttpierson.com/wp-content/uploads/2026/03/spie-2026-1.pdf">Read the paper →</a></div>
@@ -195,7 +202,7 @@
         </a>
       </div>
       <div class="entry-body">
-        <div class="entry-tag">Competition</div>
+        <div class="entry-tag"></div>
         <h3><a href="https://ttpierson.com/wp-content/uploads/2026/03/final-hulc-proposal.pdf">NASA HuLC Competition Finalist</a></h3>
         <p>Proposal submitted and approved — Thomas Pierson, Shawna Dodge, Riley Morris.</p>
         <div class="entry-links">
@@ -212,7 +219,7 @@
         </a>
       </div>
       <div class="entry-body">
-        <div class="entry-tag">Milestone</div>
+        <div class="entry-tag"></div>
         <h3><a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/">SHM Experiment Deployed to ISS</a></h3>
         <p>Part of the MISSE substation.</p>
       </div>
@@ -225,7 +232,7 @@
         </a>
       </div>
       <div class="entry-body">
-        <div class="entry-tag">Mentorship</div>
+        <div class="entry-tag"></div>
         <h3><a href="https://www.afrl.af.mil/RV/">AFRL Mentorship</a></h3>
         <p>Project leader of a team of interns for the Space Vehicles Directorate.</p>
       </div>
