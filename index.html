@@ -91,11 +91,12 @@
   h2.heading{ font-family:var(--serif); font-weight:600; font-size:1.35rem; margin:0 0 28px; }
 
   /* ---------- updates list ---------- */
-  .entry{ display:grid; grid-template-columns:160px 1fr; gap:24px; padding:26px 0; border-bottom:1px solid var(--rule); }
+  .entry{ display:grid; grid-template-columns:210px 1fr; gap:24px; padding:26px 0; border-bottom:1px solid var(--rule); }
   .entry:last-child{ border-bottom:none; padding-bottom:0; }
   .entry:first-child{ padding-top:0; }
   .entry-thumb a{ display:block; border-bottom:none; }
-  .entry-thumb img{ display:block; width:100%; height:auto; border-radius:3px; border:1px solid var(--rule); }
+  .entry-thumb img{ display:block; width:100%; max-width:160px; height:auto; border-radius:3px; border:1px solid var(--rule); }
+  .entry-thumb.large img{ max-width:none; }
   .entry-tag{ font-size:0.76rem; text-transform:uppercase; letter-spacing:.05em; color:var(--text-faint); margin-bottom:6px; }
   .entry h3{ font-family:var(--serif); font-weight:600; font-size:1.12rem; margin:0 0 8px; line-height:1.35; }
   .entry h3 a{ color:var(--text); border-bottom:none; }
@@ -172,7 +173,7 @@
     <h2 class="heading">Updates...</h2>
 
     <div class="entry">
-      <div class="entry-thumb">
+      <div class="entry-thumb large">
         <a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/imac_2026-1-1.pdf">
           <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/real-grad.png">
         </a>
@@ -195,13 +196,12 @@
         <div class="entry-tag"></div>
         <h3><a href="https://hulc.nianet.org/">NASA HuLC Innovation Award</a></h3>
         <p>The team I led won the innovation award at the NASA Human Lander Challenge.</p>
-        <div class="entry-links"><a href="https://vimeo.com/showcase/hulc?video=1203883111">Presentation Video(57:30)</a></div>
-        <div class="entry-links"></div><a href="https://ttpierson.com/wp-content/uploads/2026/03/final-hulc-proposal.pdf">Proposal</a></div>
+        <div class="entry-links"><a href="https://vimeo.com/showcase/hulc?video=1203883111">Presentation Video (57:30)</a><a href="https://ttpierson.com/wp-content/uploads/2026/03/final-hulc-proposal.pdf">Proposal</a></div>
       </div>
     </div>
 
     <div class="entry">
-      <div class="entry-thumb">
+      <div class="entry-thumb large">
         <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13951/139510D/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/10.1117/12.3093724.full">
           <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/screenshot-2026-06-30-215621.png" alt="SPIE paper thumbnail">
         </a>
