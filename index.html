@@ -57,7 +57,7 @@
   .personal{ font-family:var(--personal); letter-spacing:0.04em; }
   .topnav nav.personal a{ font-size:18.4px; }
   .links-row.personal{ font-size:18.4px; }
-  .portrait .cap.personal{ font-size:16px; }
+  .portrait .cap.personal{ font-size:calc(16px + 2pt); }
 
   .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 16px; position:relative; }
 
@@ -84,6 +84,22 @@
   .portrait{ flex:none; width:280px; }
   .portrait img{ display:block; width:100%; height:auto; border-radius:4px; border:1px solid var(--rule); }
   .portrait .cap{ font-size:0.8rem; color:var(--text-faint); margin-top:8px; line-height:1.4; }
+
+  /* ---------- hand-drawn arrows ---------- */
+  .hero{ padding-bottom:80px; }
+  #log .section-pad{ padding-top:70px; }
+  .doodle{ position:absolute; pointer-events:none; user-select:none; height:auto; }
+  /* arrow1 is sliced so its first vertical stroke stretches: JS sets top/height so it
+     starts just under the bio text and its tip lands above the IMAC video */
+  .doodle-updates{ width:260px; left:141px; top:-76px; height:202px; display:flex; flex-direction:column; }
+  .doodle-updates img{ display:block; width:100%; height:auto; flex:none; }
+  .doodle-updates img.mid{ flex:1 1 0; min-height:0; object-fit:fill; }
+  .doodle-label{ position:absolute; left:256px; top:0; transform:translate(-50%, -100%); padding-bottom:4px; font-size:calc(18.4px + 2pt); color:var(--text-soft); white-space:nowrap; cursor:pointer; pointer-events:auto; }
+  .portrait{ position:relative; }
+  .portrait-extra{ position:absolute; top:100%; left:0; width:100%; }
+  .portrait img.doodle-photo{ width:82px; left:22px; top:10px; border:none; border-radius:0; }
+  .portrait-extra img.duo{ position:absolute; left:104px; top:35px; width:175px; border-radius:4px; border:1px solid var(--rule); }
+  #log .entry:first-of-type .entry-body{ padding-right:300px; }
 
   /* ---------- section shell ---------- */
   section.block{ border-top:1px solid var(--rule); }
@@ -129,6 +145,12 @@
     .bio-flex{ flex-direction:column; }
     .portrait{ width:100%; max-width:280px; }
     .entry{ grid-template-columns:1fr; }
+    .doodle, .doodle-label{ display:none; }
+    .portrait-extra{ position:static; }
+    .portrait-extra img.duo{ position:static; display:block; margin-top:14px; width:60%; max-width:200px; }
+    #log .entry:first-of-type .entry-body{ padding-right:0; }
+    #log .section-pad{ padding-top:44px; }
+    .hero{ padding-bottom:40px; }
     .topnav nav{ gap:16px; }
     .topnav nav a{ font-size:0.82rem; }
   }
@@ -163,7 +185,7 @@
     <div class="bio-flex">
       <div class="bio">
         <p>Hey! Thanks for visiting my website.</p>
-        <p>I'm currently researching at Los Alamos National Laboratory on machine learning methods in satelite data for nonproliferation. I'm also working on a SPAR project to build robot benchmarks for safety with Robocurve (YC S26) </p>
+        <p>I'm currently researching at Los Alamos National Laboratory on ML methods and agent scaffolds in satelite data. I'm also working on a SPAR project to build robot benchmarks for safety with Robocurve (YC S26) </p>
         <p>I am deferring grad school at Carnegie Mellon University because I want to work on AI and nuclear safety. I think that the time window for international colaboration on AI security is short. I was a part of the first <a href="https://caish.org/hardware">Cambridge AI Safety Hub Hardware Security Cohort</a>, and I plan to continue research on hardware security.</p>
         <p>I grew up in Albuquerque and finished my undergrad degree at New Mexico Tech. I built the <a href="https://spie.org/spie-smart-structures-and-materials-nondestructive-evaluation/presentation/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/13951-13">first piezoelectric wafer testing experiment in space</a>, which flew on the <a href="https://www.nasa.gov/materials-international-space-station-experiment-x-misse-x/">MISSE platform</a> of the International Space Station this year. I also organized and led a team to win <a href="https://hulc.nianet.org/">$10k in funding for a NASA competition</a> to build an optical damage detection sensor. I've worked with <strong>AFRL, SNL, and NASA</strong> for intern/Co-Op positions during school.</p>
         <p>I am always open to new projects or meeting new people, so feel free to reach out to me!</p>
@@ -172,6 +194,10 @@
       <div class="portrait">
         <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/03/img_3867-edited.jpg" alt="Portrait of Thomas Pierson">
         <p class="cap personal">This picture was taken by my girlfriend <a href="https://helenatran.com">Helena</a>!</p>
+        <div class="portrait-extra">
+          <img class="doodle doodle-photo" src="images/arrow2.png" alt="">
+          <img class="duo" src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/10/img_3760.jpg?w=225" alt="Thomas and Helena">
+        </div>
       </div>
     </div>
   </div>
@@ -180,6 +206,12 @@
 <!-- ============ UPDATES ============ -->
 <section class="block" id="log">
   <div class="wrap section-pad">
+    <div class="doodle doodle-updates" id="arrow1">
+      <span class="doodle-label personal" aria-hidden="true" onclick="document.getElementById('imac-viewer').click()">try clicking this</span>
+      <img src="images/arrow1-top.png" alt="">
+      <img class="mid" src="images/arrow1-mid.png" alt="">
+      <img src="images/arrow1-bot.png" alt="">
+    </div>
     <h2 class="heading">Updates...</h2>
 
     <div class="entry">
@@ -372,6 +404,30 @@
       if(onScreen) playAll(); else vids.forEach(function(v){ v.pause(); });
     }).observe(viewer);
   }
+})();
+
+/* Stretch arrow1 so it starts right under the bio (visible above the fold)
+   while its tip stays just above the IMAC video. */
+(function(){
+  const arrow = document.getElementById('arrow1');
+  const bio = document.querySelector('.bio');
+  const target = document.getElementById('imac-viewer');
+  if(!arrow || !bio || !target) return;
+  const label = arrow.querySelector('.doodle-label');
+  function place(){
+    if(getComputedStyle(arrow).display === 'none') return;
+    const base = arrow.offsetParent.getBoundingClientRect().top;
+    const top = bio.getBoundingClientRect().bottom - base + label.offsetHeight + 12;
+    const bottom = target.getBoundingClientRect().top - base - 6;
+    const h = Math.max(165, bottom - top);
+    arrow.style.top = (bottom - h) + 'px';
+    arrow.style.height = h + 'px';
+  }
+  place();
+  window.addEventListener('load', place);
+  if(document.fonts) document.fonts.ready.then(place);
+  if('ResizeObserver' in window) new ResizeObserver(place).observe(document.body);
+  else window.addEventListener('resize', place);
 })();
 </script>
 
