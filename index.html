@@ -13,9 +13,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thomas Pierson</title>
 <meta name="description" content="Thomas Pierson — researcher working on 3D ML neural radiance wavefield reconstruction, robotic sensing, and robotic perception.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   @font-face{
     font-family:'Mefont';
@@ -25,251 +22,192 @@
     font-display:swap;
   }
   :root{
-    --bg:#EBE3D8;
-    --text:#1c1c1c;
-    --text-soft:#5b5b5b;
-    --text-faint:#8c8c8c;
-    --rule:#e2e0da;
-    --accent:#5b7a99;
-    --accent-soft:#8fa8c2;
-    --serif:'Lora', Georgia, serif;
-    --sans:'Lora', Georgia, serif;
-    --personal:'Mefont', 'Lora', Georgia, serif;
-    --maxw:1200px;
+    --paper:#fdfdfd;
+    --link:#003366;
+    --gray:#555555;
+    --orange:#e07b1f;
+    --arial:Arial, Helvetica, sans-serif;
+    --courier:'Courier New', Courier, Monaco, monospace;
+    --personal:'Mefont', 'Courier New', Courier, monospace;
   }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth; font-size:15px;}
+  *{ box-sizing:border-box; }
   body{
     margin:0;
-    background:
-      radial-gradient(ellipse 900px 500px at 85% -8%, rgba(91,122,153,0.09), transparent 65%),
-      var(--bg);
-    color:var(--text);
-    font-family:var(--sans);
-    font-size:16px;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
+    background:linear-gradient(to bottom, #000 0, #000 80px, var(--paper) 80px) no-repeat, var(--paper);
+    color:#000;
+    font-family:var(--arial);
+    font-size:13px;
+    line-height:1.35;
   }
-  a{ color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(91,122,153,0.35); transition:color .15s ease, border-color .15s ease; }
-  a:hover{ border-bottom-color:var(--accent); color:#3f5c78; }
-  :focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
-  .personal{ font-family:var(--personal); letter-spacing:0.04em; }
-  .topnav nav.personal a{ font-size:18.4px; }
-  .links-row.personal{ font-size:18.4px; }
-  .portrait .cap.personal{ font-size:calc(16px + 2pt); }
+  a, a:visited{ color:var(--link); }
+  img{ border:0; }
+  .page{ width:580px; max-width:100%; margin:0 auto; }
 
-  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 16px; position:relative; }
+  /* ---------- masthead (sits in the black band) ---------- */
+  .masthead{ height:80px; display:flex; align-items:center; padding:0 2px; }
+  .logo, .logo:visited{ color:#fff; text-decoration:none; }
+  .logo-text{ display:block; font:bold 30px/1 var(--arial); letter-spacing:-0.5px; }
 
-  /* ---------- nav ---------- */
-  .topnav{ display:flex; align-items:center; justify-content:space-between; padding:22px 0; border-bottom:1px solid var(--rule); }
-  .brand{ font-family:var(--serif); font-weight:600; font-size:1.05rem; color:var(--text); border-bottom:none; }
-  .topnav nav{ display:flex; gap:26px; }
-  .topnav nav a{ font-size:0.9rem; color:var(--text-soft); border-bottom:none; }
-  .topnav nav a:hover{ color:var(--accent); }
+  /* ---------- tab bar ---------- */
+  .bar{ display:flex; background:#000; height:20px; margin:18px 0 16px; }
+  .bar a, .bar a:visited{ flex:1; color:#fff; font:bold 12px/20px var(--arial); padding-left:6px; text-decoration:none; border-left:2px solid #fff; white-space:nowrap; overflow:hidden; }
+  .bar a:first-child{ border-left:none; }
+  .bar a:hover{ background:#333; }
 
-  /* ---------- hero / bio ---------- */
-  .hero{ padding:52px 0 40px; }
-  .hero h1{ font-family:var(--serif); font-weight:600; font-size:2.2rem; margin:0 0 4px; }
-  .role{ color:var(--text-soft); font-size:1.05rem; margin:0 0 18px; }
+  /* ---------- two columns ---------- */
+  .cols{ display:flex; gap:10px; align-items:flex-start; }
+  .side{ width:155px; flex:none; text-align:center; }
+  .side a{ display:block; margin-bottom:14px; }
+  .side img{ display:block; width:140px; height:auto; margin:0 auto; }
+  .main{ width:415px; flex:none; min-width:0; }
+  .main-body{ padding-left:15px; }
 
-  .links-row{ display:flex; flex-wrap:wrap; margin:0 0 34px; font-size:0.92rem; }
-  .links-row a{ margin:0 20px 6px 0; padding-bottom:2px; }
+  .dot{ border-top:1px dotted #000; margin:6px 0 12px; }
+  .cut{ text-align:center; margin:14px 0; font:10px var(--arial); color:#333; background:linear-gradient(to right, #000 1px, transparent 1px) 0 50%/4px 1px repeat-x; }
+  .cut span{ background:var(--paper); padding:0 6px; }
 
-  .bio-flex{ display:flex; gap:36px; align-items:flex-start; }
-  .bio{ flex:1 1 auto; min-width:0; }
-  .bio p{ margin:0 0 15px; max-width:85ch; color:var(--text); }
-  .bio p:last-child{ margin-bottom:0; }
-
-  .portrait{ flex:none; width:280px; }
-  .portrait img{ display:block; width:100%; height:auto; border-radius:4px; border:1px solid var(--rule); }
-  .portrait .cap{ font-size:0.8rem; color:var(--text-faint); margin-top:8px; line-height:1.4; }
-
-  /* ---------- section shell ---------- */
-  section.block{ border-top:1px solid var(--rule); }
-  .section-pad{ padding:44px 0; }
-  h2.heading{ font-family:var(--serif); font-weight:600; font-size:1.35rem; margin:0 0 28px; }
-
-  /* ---------- updates list ---------- */
-  .entry{ display:grid; grid-template-columns:210px 1fr; gap:24px; padding:26px 0; border-bottom:1px solid var(--rule); }
-  .entry:last-child{ border-bottom:none; padding-bottom:0; }
-  .entry:first-child{ padding-top:0; }
-  .entry-thumb a{ display:block; border-bottom:none; }
-  .entry-thumb img{ display:block; width:100%; max-width:160px; height:auto; border-radius:3px; border:1px solid var(--rule); }
-  .entry-thumb.large img{ max-width:none; }
-  .entry-tag{ font-size:0.76rem; text-transform:uppercase; letter-spacing:.05em; color:var(--text-faint); margin-bottom:6px; }
-  .entry h3{ font-family:var(--serif); font-weight:600; font-size:1.12rem; margin:0 0 8px; line-height:1.35; }
-  .entry h3 a{ color:var(--text); border-bottom:none; }
-  .entry h3 a:hover{ color:var(--accent); }
-  .entry p{ margin:0 0 10px; font-size:0.94rem; color:var(--text-soft); }
-  .entry-links{ font-size:0.86rem; }
-  .entry-links a{ margin-right:16px; }
+  .main p{ margin:0 0 12px; }
+  .main h3{ font:bold 13px var(--arial); margin:0 0 8px; }
+  .more{ font-size:10px; }
+  .more a{ margin-right:8px; }
+  .inset{ float:right; margin:0 0 6px 8px; }
+  .inset img{ display:block; width:110px; height:auto; }
+  .clear{ clear:both; }
 
   /* ---------- synced multi-view video ---------- */
-  .spin-viewer{ position:relative; width:100%; aspect-ratio:1/1; cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; }
+  .spin-viewer{ position:relative; width:100%; aspect-ratio:1/1; cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; background:#fff; }
   .spin-viewer video{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply; opacity:0; pointer-events:none; }
   .spin-viewer video.active{ opacity:1; }
-  .spin-views{ display:flex; gap:12px; margin-top:6px; font-size:0.76rem; color:var(--text-faint); }
-  .spin-views button{ all:unset; cursor:pointer; padding-bottom:1px; border-bottom:1px solid transparent; }
-  .spin-views button:hover{ color:var(--accent); }
-  .spin-views button[aria-pressed="true"]{ color:var(--text); border-bottom-color:var(--accent); }
-  .spin-views button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .spin-viewer:focus-visible{ outline:1px dotted #000; }
+  .spin-views{ display:flex; justify-content:center; gap:10px; margin-top:4px; font:10px var(--arial); }
+  .spin-views button{ all:unset; cursor:pointer; color:var(--link); text-decoration:underline; }
+  .spin-views button[aria-pressed="true"]{ font-weight:bold; color:#000; text-decoration:none; }
+  .spin-views button:focus-visible{ outline:1px dotted #000; }
+  .viewer-cap{ text-align:center; font:10px var(--courier); color:var(--gray); margin:2px 0 0; }
 
   /* ---------- footer ---------- */
-  footer.site-footer{ border-top:1px solid var(--rule); background:#f2f1ec; }
-  footer.site-footer .wrap{ padding:40px 16px; }
-  footer.site-footer h2{ font-family:var(--serif); font-weight:600; font-size:1.3rem; margin:0 0 10px; }
-  footer.site-footer p{ color:var(--text-soft); margin:0 0 18px; max-width:54ch; }
-  .foot-links{ display:flex; flex-wrap:wrap; font-size:0.9rem; margin-bottom:22px; }
-  .foot-links a{ margin:0 20px 6px 0; }
-  .foot-meta{ font-size:0.82rem; color:var(--text-faint); border-top:1px solid var(--rule); padding-top:16px; }
+  footer{ text-align:center; margin:40px 10px 30px; }
+  .foot-main{ font-size:13px; margin:0 0 12px; }
+  .foot-small{ font-size:10px; margin:0 0 14px; }
+  .disclaimer{ font:10px var(--courier); color:var(--gray); margin:0; }
 
-  /* ---------- responsive ---------- */
-  @media (max-width:680px){
-    .bio-flex{ flex-direction:column; }
-    .portrait{ width:100%; max-width:280px; }
-    .entry{ grid-template-columns:1fr; }
-    .topnav nav{ gap:16px; }
-    .topnav nav a{ font-size:0.82rem; }
+  /* ---------- small screens ---------- */
+  @media (max-width:600px){
+    .page{ padding:0 16px; }
+    .masthead{ padding:0; }
+    .logo-text{ font-size:22px; }
+    .bar a, .bar a:visited{ font-size:10px; padding-left:4px; }
+    .cols{ flex-direction:column-reverse; }
+    .main, .side{ width:100%; }
+    .main-body{ padding-left:0; }
+    .side{ display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:10px; border-top:1px dotted #000; padding-top:14px; }
+    .side a{ margin:0; }
+    .side img{ width:100px; }
   }
 </style>
 </head>
-<body>
+<body id="top">
 
-<!-- ============ NAV ============ -->
-<div class="wrap">
-  <div class="topnav">
-    <span class="brand">Thomas Pierson</span>
-    <nav class="personal">
-      <a href="#about">About</a>
-      <a href="#log">Updates</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<div class="page">
+
+  <!-- ============ MASTHEAD ============ -->
+  <div class="masthead">
+    <a class="logo" href="#top"><span class="logo-text">Thomas Pierson</span></a>
   </div>
-</div>
 
-<!-- ============ HERO / BIO ============ -->
-<section id="about">
-  <div class="wrap hero">
+  <!-- ============ TAB BAR ============ -->
+  <nav class="bar">
+    <a href="#log">What's New</a>
+    <a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/07/tp_resume-11.pdf">Resume</a>
+    <a href="https://scholar.google.com/citations?user=5l8yCAcAAAAJ&hl=en">Papers</a>
+    <a href="https://github.com/ttpierson">GitHub</a>
+  </nav>
 
-    <div class="links-row personal">
-      <a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/07/tp_resume-11.pdf">Resume</a>
-      <a href="mailto:tpierson@andrew.cmu.edu">tpierson@andrew.cmu.edu</a>
-      <a href="https://www.linkedin.com/in/tpierson741/">LinkedIn</a>
-      <a href="https://github.com/ttpierson">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=5l8yCAcAAAAJ&hl=en">Google Scholar</a>
+  <div class="cols">
+
+    <!-- ============ LEFT COLUMN ============ -->
+    <div class="side">
+      <a href="https://helenatran.com"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/03/img_3867-edited.jpg" alt="Portrait of Thomas Pierson"></a>
+      <a href="https://hulc.nianet.org/"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/screenshot-2026-06-30-215024.png" alt="NASA HuLC Innovation Award"></a>
+      <a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/09/img_0176.jpg" alt="MISSE experiment on the ISS"></a>
+      <a href="https://www.afrl.af.mil/RV/"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/image-25.png" alt="Air Force Research Laboratory Space Vehicles Directorate insignia"></a>
     </div>
 
-    <div class="bio-flex">
-      <div class="bio">
-        <p>Hey! Thanks for visiting my website.</p>
-        <p>I'm currently researching at Los Alamos National Laboratory on ML methods and agent scaffolds in satelite data. I'm also working on a SPAR project to build robot benchmarks for safety with Robocurve (YC S26) </p>
-        <p>I am deferring grad school at Carnegie Mellon University because I want to work on AI and robot safety. I think that the time window for international colaboration on AI security is short. I was a part of the first <a href="https://caish.org/hardware">Cambridge AI Safety Hub Hardware Security Cohort</a></p>
-        <p>I grew up in Albuquerque and finished my undergrad degree at New Mexico Tech. I built the <a href="https://spie.org/spie-smart-structures-and-materials-nondestructive-evaluation/presentation/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/13951-13">first piezoelectric wafer testing experiment in space</a>, which flew on the <a href="https://www.nasa.gov/materials-international-space-station-experiment-x-misse-x/">MISSE platform</a> of the International Space Station this year. I also organized and led a team to win <a href="https://hulc.nianet.org/">$10k in funding for a NASA competition</a> to build an optical damage detection sensor. I've worked with <strong>AFRL, SNL, and NASA</strong> for intern/Co-Op positions during school.</p>
-        <p>I am always open to new projects or meeting new people, so feel free to reach out to me!</p>
+    <!-- ============ RIGHT COLUMN ============ -->
+    <div class="main">
+      <div class="spin-viewer" id="imac-viewer" role="button" tabindex="0" aria-label="Spinning part reconstruction. Click to switch rendering.">
+        <video data-view="Imaginary" class="active" src="videos/flawtech_imaginary.mp4" muted loop playsinline preload="auto"></video>
+        <video data-view="Gradient" src="videos/flawtech_gradient.mp4" muted loop playsinline preload="auto"></video>
+        <video data-view="Phase" src="videos/flawtech_phase.mp4" muted loop playsinline preload="auto"></video>
       </div>
+      <div class="spin-views" id="imac-views"></div>
+      <p class="viewer-cap">(click the part to switch renderings)</p>
 
-      <div class="portrait">
-        <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/03/img_3867-edited.jpg" alt="Portrait of Thomas Pierson">
-        <p class="cap personal">This picture was taken by my girlfriend <a href="https://helenatran.com">Helena</a>!</p>
+      <div class="dot"></div>
+
+      <div class="main-body">
+
+        <section id="about">
+          <h3>Hey! Thanks for visiting my website.</h3>
+          <p>I'm currently researching at Los Alamos National Laboratory on ML methods and agent scaffolds in satelite data. I'm also working on a SPAR project to build robot benchmarks for safety with Robocurve (YC S26)</p>
+          <p>I am deferring grad school at Carnegie Mellon University because I want to work on AI and robot safety. I think that the time window for international colaboration on AI security is short. I was a part of the first <a href="https://caish.org/hardware">Cambridge AI Safety Hub Hardware Security Cohort</a></p>
+          <p>I grew up in Albuquerque and finished my undergrad degree at New Mexico Tech. I built the <a href="https://spie.org/spie-smart-structures-and-materials-nondestructive-evaluation/presentation/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/13951-13">first piezoelectric wafer testing experiment in space</a>, which flew on the <a href="https://www.nasa.gov/materials-international-space-station-experiment-x-misse-x/">MISSE platform</a> of the International Space Station this year. I also organized and led a team to win <a href="https://hulc.nianet.org/">$10k in funding for a NASA competition</a> to build an optical damage detection sensor. I've worked with <b>AFRL, SNL, and NASA</b> for intern/Co-Op positions during school.</p>
+          <p class="more"><a href="https://www.linkedin.com/in/tpierson741/">LinkedIn</a> <a href="https://github.com/ttpierson">GitHub</a> <a href="https://scholar.google.com/citations?user=5l8yCAcAAAAJ&hl=en">Google Scholar</a></p>
+        </section>
+
+        <div class="cut"><span>cut here</span></div>
+
+        <section id="log">
+          <h3><a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/imac_2026-1-1.pdf">Paper accepted to CV section of IMAC</a></h3>
+          <p>"3D Neural Rendering for Automated Ultrasonic Laser Scans", lead author.
+            <span class="more"><a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/imac_2026-1-1.pdf">Read the paper...</a></span></p>
+
+          <div class="cut"><span>cut here</span></div>
+
+          <h3><a href="https://hulc.nianet.org/">NASA HuLC Innovation Award</a></h3>
+          <p>The team I led won the innovation award at the NASA Human Lander Challenge.
+            <span class="more"><a href="https://vimeo.com/showcase/hulc?video=1203883111">Presentation Video (57:30)...</a> <a href="https://ttpierson.com/wp-content/uploads/2026/03/final-hulc-proposal.pdf">Proposal...</a></span></p>
+
+          <div class="cut"><span>cut here</span></div>
+
+          <a class="inset" href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13951/139510D/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/10.1117/12.3093724.full"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/screenshot-2026-06-30-215621.png" alt="SPIE paper thumbnail"></a>
+          <h3><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13951/139510D/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/10.1117/12.3093724.full">SPIE Paper Published</a></h3>
+          <p>&ldquo;Structural health monitoring payload for the MISSE platform on the International Space Station&rdquo;
+            <span class="more"><a href="https://ttpierson.com/wp-content/uploads/2026/03/spie-2026-1.pdf">Read the paper...</a></span></p>
+          <div class="clear"></div>
+
+          <div class="cut"><span>cut here</span></div>
+
+          <h3><a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/">SHM Experiment Deployed to ISS</a></h3>
+          <p>Part of the MISSE substation.
+            <span class="more"><a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/">Read More...</a></span></p>
+
+          <div class="cut"><span>cut here</span></div>
+
+          <h3><a href="https://www.afrl.af.mil/RV/">AFRL Mentorship</a></h3>
+          <p>Project leader of a team of interns for the Space Vehicles Directorate.
+            <span class="more"><a href="https://www.afrl.af.mil/RV/">Read More...</a></span></p>
+        </section>
+
       </div>
     </div>
   </div>
-</section>
 
-<!-- ============ UPDATES ============ -->
-<section class="block" id="log">
-  <div class="wrap section-pad">
-    <h2 class="heading">Updates...</h2>
-
-    <div class="entry">
-      <div class="entry-thumb large">
-        <div class="spin-viewer" id="imac-viewer" role="button" tabindex="0" aria-label="Spinning part reconstruction. Click to switch rendering.">
-          <video data-view="Imaginary" class="active" src="videos/flawtech_imaginary.mp4" muted loop playsinline preload="auto"></video>
-          <video data-view="Gradient" src="videos/flawtech_gradient.mp4" muted loop playsinline preload="auto"></video>
-          <video data-view="Phase" src="videos/flawtech_phase.mp4" muted loop playsinline preload="auto"></video>
-        </div>
-        <div class="spin-views" id="imac-views"></div>
-      </div>
-      <div class="entry-body">
-        <div class="entry-tag"></div>
-        <h3><a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/imac_2026-1-1.pdf">Paper accepted to CV section of IMAC</a></h3>
-        <p>"3D Neural Rendering for Automated Ultrasonic Laser Scans", lead author</p>
-        <div class="entry-links"><a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/imac_2026-1-1.pdf">paper</a></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-thumb">
-        <a href="https://hulc.nianet.org/">
-          <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/screenshot-2026-06-30-215024.png" alt="HuLC Innovation Award">
-        </a>
-      </div>
-      <div class="entry-body">
-        <div class="entry-tag"></div>
-        <h3><a href="https://hulc.nianet.org/">NASA HuLC Innovation Award</a></h3>
-        <p>The team I led won the innovation award at the NASA Human Lander Challenge.</p>
-        <div class="entry-links"><a href="https://vimeo.com/showcase/hulc?video=1203883111">Presentation Video (57:30)</a><a href="https://ttpierson.com/wp-content/uploads/2026/03/final-hulc-proposal.pdf">Proposal</a></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-thumb large">
-        <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13951/139510D/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/10.1117/12.3093724.full">
-          <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/screenshot-2026-06-30-215621.png" alt="SPIE paper thumbnail">
-        </a>
-      </div>
-      <div class="entry-body">
-        <div class="entry-tag"></div>
-        <h3><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13951/139510D/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/10.1117/12.3093724.full">SPIE Paper Published</a></h3>
-        <p>“Structural health monitoring payload for the MISSE platform on the International Space Station”</p>
-        <div class="entry-links"><a href="https://ttpierson.com/wp-content/uploads/2026/03/spie-2026-1.pdf">paper</a></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-thumb">
-        <a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/">
-          <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/09/img_0176.jpg" alt="MISSE experiment on the ISS">
-        </a>
-      </div>
-      <div class="entry-body">
-        <div class="entry-tag"></div>
-        <h3><a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/">SHM Experiment Deployed to ISS</a></h3>
-        <p>Part of the MISSE substation.</p>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-thumb">
-        <a href="https://www.afrl.af.mil/RV/">
-          <img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/image-25.png" alt="Air Force Research Laboratory Space Vehicles Directorate insignia">
-        </a>
-      </div>
-      <div class="entry-body">
-        <div class="entry-tag"></div>
-        <h3><a href="https://www.afrl.af.mil/RV/">AFRL Mentorship</a></h3>
-        <p>Project leader of a team of interns for the Space Vehicles Directorate.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer" id="contact">
-  <div class="wrap">
-    <h2>Contact</h2>
-    <p>I am always open to new projects or meeting new people, so feel free to reach out to me!</p>
-    <div class="foot-links">
-      <a href="mailto:tpierson@andrew.cmu.edu">tpierson@andrew.cmu.edu</a>
-      <a href="https://www.linkedin.com/in/tpierson741/">LinkedIn</a>
-      <a href="https://github.com/ttpierson">GitHub</a>
+  <!-- ============ FOOTER ============ -->
+  <footer id="contact">
+    <p class="foot-main">
+      <a href="mailto:tpierson@andrew.cmu.edu">tpierson@andrew.cmu.edu</a> &bull;
+      <a href="https://www.linkedin.com/in/tpierson741/">LinkedIn</a> &bull;
+      <a href="https://github.com/ttpierson">GitHub</a> &bull;
       <a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/07/tp_resume-11.pdf">Resume (PDF)</a>
-    </div>
-    <div class="foot-meta">Thomas Pierson · Albuquerque, NM</div>
-  </div>
-</footer>
+    </p>
+    <p class="foot-small">
+      <a href="#top">Home</a> &bull; <a href="#about">About</a> &bull; <a href="#log">Updates</a> &bull; <a href="https://scholar.google.com/citations?user=5l8yCAcAAAAJ&hl=en">Google Scholar</a> &bull; <a href="mailto:tpierson@andrew.cmu.edu">Contact</a>
+    </p>
+    <p class="disclaimer">I am always open to new projects or meeting new people, so feel free to reach out to me!<br>Thomas Pierson &middot; Albuquerque, NM</p>
+  </footer>
+
+</div>
 
 <script>
 /* Synced multi-view video: all renderings play together (hidden ones stay
