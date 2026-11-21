@@ -83,6 +83,7 @@
   .spin-views button{ all:unset; cursor:pointer; color:var(--link); text-decoration:underline; }
   .spin-views button[aria-pressed="true"]{ font-weight:bold; color:#000; text-decoration:none; }
   .spin-views button:focus-visible{ outline:1px dotted #000; }
+  .viewer-title{ text-align:center; font:12px var(--courier); color:#000; margin:6px 0 0; }
   .viewer-cap{ text-align:center; font:10px var(--courier); color:var(--gray); margin:2px 0 0; }
 
   /* ---------- footer ---------- */
@@ -135,18 +136,7 @@
 
     <!-- ============ RIGHT COLUMN ============ -->
     <div class="main">
-      <div class="spin-viewer" id="imac-viewer" role="button" tabindex="0" aria-label="Spinning part reconstruction. Click to switch rendering.">
-        <video data-view="Imaginary" class="active" src="videos/flawtech_imaginary.mp4" muted loop playsinline preload="auto"></video>
-        <video data-view="Gradient" src="videos/flawtech_gradient.mp4" muted loop playsinline preload="auto"></video>
-        <video data-view="Phase" src="videos/flawtech_phase.mp4" muted loop playsinline preload="auto"></video>
-      </div>
-      <div class="spin-views" id="imac-views"></div>
-      <p class="viewer-cap">(click the part to switch renderings)</p>
-
-      <div class="dot"></div>
-
       <div class="main-body">
-
         <section id="about">
           <h3>Hey! Thanks for visiting my website.</h3>
           <p>I'm currently researching at Los Alamos National Laboratory on ML methods and agent scaffolds in satelite data. I'm also working on a SPAR project to build robot benchmarks for safety with Robocurve (YC S26)</p>
@@ -154,9 +144,22 @@
           <p>I grew up in Albuquerque and finished my undergrad degree at New Mexico Tech. I built the <a href="https://spie.org/spie-smart-structures-and-materials-nondestructive-evaluation/presentation/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/13951-13">first piezoelectric wafer testing experiment in space</a>, which flew on the <a href="https://www.nasa.gov/materials-international-space-station-experiment-x-misse-x/">MISSE platform</a> of the International Space Station this year. I also organized and led a team to win <a href="https://hulc.nianet.org/">$10k in funding for a NASA competition</a> to build an optical damage detection sensor. I've worked with <b>AFRL, SNL, and NASA</b> for intern/Co-Op positions during school.</p>
           <p class="more"><a href="https://www.linkedin.com/in/tpierson741/">LinkedIn</a> <a href="https://github.com/ttpierson">GitHub</a> <a href="https://scholar.google.com/citations?user=5l8yCAcAAAAJ&hl=en">Google Scholar</a></p>
         </section>
+      </div>
 
-        <div class="cut"><span>cut here</span></div>
+      <div class="dot"></div>
 
+      <div class="spin-viewer" id="imac-viewer" role="button" tabindex="0" aria-label="Spinning part reconstruction. Click to switch rendering.">
+        <video data-view="Imaginary" class="active" src="videos/flawtech_imaginary.mp4" muted loop playsinline preload="auto"></video>
+        <video data-view="Gradient" src="videos/flawtech_gradient.mp4" muted loop playsinline preload="auto"></video>
+        <video data-view="Phase" src="videos/flawtech_phase.mp4" muted loop playsinline preload="auto"></video>
+      </div>
+      <div class="spin-views" id="imac-views"></div>
+      <p class="viewer-title">neural rendering from one of my recent projects!</p>
+      <p class="viewer-cap">(click the part to switch renderings)</p>
+
+      <div class="dot"></div>
+
+      <div class="main-body">
         <section id="log">
           <h3><a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/imac_2026-1-1.pdf">Paper accepted to CV section of IMAC</a></h3>
           <p>"3D Neural Rendering for Automated Ultrasonic Laser Scans", lead author.
@@ -204,7 +207,7 @@
     <p class="foot-small">
       <a href="#top">Home</a> &bull; <a href="#about">About</a> &bull; <a href="#log">Updates</a> &bull; <a href="https://scholar.google.com/citations?user=5l8yCAcAAAAJ&hl=en">Google Scholar</a> &bull; <a href="mailto:tpierson@andrew.cmu.edu">Contact</a>
     </p>
-    <p class="disclaimer">I am always open to new projects or meeting new people, so feel free to reach out to me!<br>Thomas Pierson &middot; Albuquerque, NM</p>
+    <p class="disclaimer">I am always open to new projects or meeting new people, so feel free to reach out to me!<br>Thomas Pierson</p>
   </footer>
 
 </div>
