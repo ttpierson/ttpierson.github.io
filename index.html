@@ -33,7 +33,7 @@
   *{ box-sizing:border-box; }
   body{
     margin:0;
-    background:linear-gradient(to bottom, #000 0, #000 80px, var(--paper) 80px) no-repeat, var(--paper);
+    background:var(--paper);
     color:#000;
     font-family:var(--arial);
     font-size:13px;
@@ -44,9 +44,10 @@
   .page{ width:580px; max-width:100%; margin:0 auto; }
 
   /* ---------- masthead (sits in the black band) ---------- */
-  .masthead{ height:80px; display:flex; align-items:center; padding:0 2px; }
+  .banner{ position:absolute; top:0; left:0; right:0; height:140px; background:#000 url('images/banner.png') center top/100% max(140px, min(280px, 26.8vw)) no-repeat; z-index:-1; }
+  .masthead{ height:140px; display:flex; align-items:flex-end; padding:0 2px 14px; }
   .logo, .logo:visited{ color:#fff; text-decoration:none; }
-  .logo-text{ display:block; font:bold 30px/1 var(--arial); letter-spacing:-0.5px; }
+  .logo-text{ display:block; font:bold 30px/1 var(--arial); letter-spacing:-0.5px; text-shadow:0 0 6px #000, 1px 1px 2px #000; }
 
   /* ---------- tab bar ---------- */
   .bar{ display:flex; background:#000; height:20px; margin:18px 0 16px; }
@@ -63,8 +64,6 @@
   .main-body{ padding-left:15px; }
 
   .dot{ border-top:1px dotted #000; margin:6px 0 12px; }
-  .cut{ text-align:center; margin:14px 0; font:10px var(--arial); color:#333; background:linear-gradient(to right, #000 1px, transparent 1px) 0 50%/4px 1px repeat-x; }
-  .cut span{ background:var(--paper); padding:0 6px; }
 
   .main p{ margin:0 0 12px; }
   .main h3{ font:bold 13px var(--arial); margin:0 0 8px; }
@@ -73,6 +72,9 @@
   .inset{ float:right; margin:0 0 6px 8px; }
   .inset img{ display:block; width:110px; height:auto; }
   .clear{ clear:both; }
+
+  /* ---------- sidebar captions ---------- */
+  .side-cap{ display:block; font:11px var(--arial); color:#000; margin-top:4px; }
 
   /* ---------- synced multi-view video ---------- */
   .spin-viewer{ position:relative; width:100%; aspect-ratio:1/1; cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; background:#fff; }
@@ -108,6 +110,7 @@
 </style>
 </head>
 <body id="top">
+<div class="banner" aria-hidden="true"></div>
 
 <div class="page">
 
@@ -130,8 +133,9 @@
     <div class="side">
       <a href="https://helenatran.com"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/03/img_3867-edited.jpg" alt="Portrait of Thomas Pierson"></a>
       <a href="https://hulc.nianet.org/"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/screenshot-2026-06-30-215024.png" alt="NASA HuLC Innovation Award"></a>
-      <a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/09/img_0176.jpg" alt="MISSE experiment on the ISS"></a>
-      <a href="https://www.afrl.af.mil/RV/"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/image-25.png" alt="Air Force Research Laboratory Space Vehicles Directorate insignia"></a>
+      <a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/imac_2026-1-1.pdf"><img src="images/ladss.jpg" alt="Los Alamos Dynamics Summer School participants"><span class="side-cap">my Los Alamos summer team</span></a>
+      <a href="https://www.nmt.edu/news/2026/an-innovative-spider-designed-by-new-mexico-tech-students-could-make-nasas-moon-base-safer.php"><img src="images/nasahlc.jpeg" alt="New Mexico Tech team with their poster at the NASA Human Lander Challenge"><span class="side-cap">as in the news!</span></a>
+      <a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/09/img_0176.jpg" alt="MISSE experiment on the ISS"><span class="side-cap">shm payload</span></a>
     </div>
 
     <!-- ============ RIGHT COLUMN ============ -->
@@ -164,14 +168,16 @@
           <h3><a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/imac_2026-1-1.pdf">Paper accepted to CV section of IMAC</a></h3>
           <p>"3D Neural Rendering for Automated Ultrasonic Laser Scans", lead author.
             <span class="more"><a href="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2026/09/imac_2026-1-1.pdf">Read the paper...</a></span></p>
+          <div class="clear"></div>
 
-          <div class="cut"><span>cut here</span></div>
+          <div class="dot"></div>
 
           <h3><a href="https://hulc.nianet.org/">NASA HuLC Innovation Award</a></h3>
           <p>The team I led won the innovation award at the NASA Human Lander Challenge.
             <span class="more"><a href="https://vimeo.com/showcase/hulc?video=1203883111">Presentation Video (57:30)...</a> <a href="https://ttpierson.com/wp-content/uploads/2026/03/final-hulc-proposal.pdf">Proposal...</a></span></p>
+          <div class="clear"></div>
 
-          <div class="cut"><span>cut here</span></div>
+          <div class="dot"></div>
 
           <a class="inset" href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13951/139510D/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/10.1117/12.3093724.full"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/screenshot-2026-06-30-215621.png" alt="SPIE paper thumbnail"></a>
           <h3><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13951/139510D/Structural-health-monitoring-payload-for-the-MISSE-platform-on-the/10.1117/12.3093724.full">SPIE Paper Published</a></h3>
@@ -179,17 +185,20 @@
             <span class="more"><a href="https://ttpierson.com/wp-content/uploads/2026/03/spie-2026-1.pdf">Read the paper...</a></span></p>
           <div class="clear"></div>
 
-          <div class="cut"><span>cut here</span></div>
+          <div class="dot"></div>
 
           <h3><a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/">SHM Experiment Deployed to ISS</a></h3>
           <p>Part of the MISSE substation.
             <span class="more"><a href="https://issnationallab.org/facilities/multi-purpose-iss-experiment-flight-facility/">Read More...</a></span></p>
+          <div class="clear"></div>
 
-          <div class="cut"><span>cut here</span></div>
+          <div class="dot"></div>
 
+          <a class="inset" href="https://www.afrl.af.mil/RV/"><img src="https://tpierson741-uxqtc.wordpress.com/wp-content/uploads/2025/11/image-25.png" alt="Air Force Research Laboratory Space Vehicles Directorate insignia"></a>
           <h3><a href="https://www.afrl.af.mil/RV/">AFRL Mentorship</a></h3>
           <p>Project leader of a team of interns for the Space Vehicles Directorate.
             <span class="more"><a href="https://www.afrl.af.mil/RV/">Read More...</a></span></p>
+          <div class="clear"></div>
         </section>
 
       </div>
